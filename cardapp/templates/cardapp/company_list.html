@@ -1,0 +1,11 @@
+{% extends 'cardapp/basic_base.html' %}
+{% block content %}
+    <h1> List of Companies</h1>
+    <ol>
+        {% for data in mycompanylist %}
+           <li><a href="{{ data.id }}">{{ data.name }}</a></li>
+        {% endfor %}
+    </ol>
+    <br>
+    <p><a href="{% url 'cardapp:create' %}" class="btn btn-success">Add Company</a></p>
+{% endblock %}

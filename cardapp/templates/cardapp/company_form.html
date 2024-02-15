@@ -1,0 +1,22 @@
+{% extends 'cardapp/basic_base.html' %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        {% if not form.instance.pk %}
+            <h1>Add new Company here.......</h1>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Create" class="btn btn-primary" >
+            </form>
+        {% else %}
+           <h1>Add new Company here.......</h1>
+           <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                 <input type="submit" value="Update" class="btn btn-warning" >
+            </form>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

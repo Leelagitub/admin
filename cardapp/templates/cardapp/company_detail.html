@@ -1,0 +1,37 @@
+{% extends 'cardapp/basic_base.html' %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <h1>Company details are Here............</h1>
+        <p>Company Name :{{ company_detail.name }}</p>
+        <p>CEO : {{ company_detail.ceo }}</p>
+        <p>Origin : {{ company_detail.origin }}</p>
+
+        <p>
+            <a href="{% url 'cardapp:update' pk=company_detail.pk %}" class="btn      btn-warning">Update</a>
+            <a href="{% url 'cardapp:delete' pk=company_detail.pk %}" class="btn btn-danger">Delete</a>
+        </p>
+    </div>
+</div>
+<hr>
+<div class="container">
+    <div class="jumbotron">
+        <h2>Products details here ........</h2>
+        <div class="row">
+        {% for data in company_detail.companies.all %}
+            <div class="col-md-4">
+                <p>Product Name: {{ data.product_name }}</p>
+                <p>Miliege : {{data.miliege}}</p>
+                <p>CC : {{data.cc}}</p>
+                <p>Color : {{data.color }}</p>
+                <p>Year : {{data.year }}</p>
+                <p><a href="#" class="btn btn-primary">Update</a></p>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+

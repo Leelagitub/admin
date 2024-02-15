@@ -1,0 +1,13 @@
+{% extends 'cardapp/basic_base.html' %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron">
+        <h1>Do  you want Delete....?</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-danger" value="Delete">
+            <p><a href="{% url 'cardapp:list' %}">Cancel...?</a></p>
+        </form> 
+    </div>
+</div>
+{% endblock%}
